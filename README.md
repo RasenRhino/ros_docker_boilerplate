@@ -1,8 +1,10 @@
-# ROS Noetic Docker Setup for macOS Silicon
+# ROS Noetic Docker Setup
 
-A complete ROS Noetic development environment running in Docker on macOS Silicon. Get ROS running in minutes with GUI tools, SSH access, and persistent development sessions.
+A complete ROS Noetic development environment running in Docker. Get ROS running in minutes with GUI tools, SSH access.
 
-## 🚀 TLDR - Quick Start
+**Compatible with:** macOS Silicon, macOS Intel, Linux, Windows (with Docker Desktop)
+
+##  TLDR - Quick Start
 
 **Want to get ROS running right now? Here's the 30-second version:**
 
@@ -21,25 +23,25 @@ source devel/setup.bash
 roslaunch turtle_circle_package turtle_circle.launch
 ```
 
-**Need GUI tools?** Open `http://localhost:8080/vnc.html` in your browser.
+**NOTE:** GUI might not work, for that go to VNC
 
-That's it! You now have a full ROS development environment. 🎉
+**For GUI** Open `http://localhost:8080/vnc.html` in your browser.
+
 
 ---
 
-## What You Get
+## Features 
 
-- ✅ **ROS Noetic** - Full ROS environment with all tools
-- ✅ **GUI Access** - RViz, Gazebo, rqt via VNC or web browser
-- ✅ **SSH Access** - Terminal-based development with tmux
-- ✅ **Example Package** - Turtle circle demo included
-- ✅ **Persistent Storage** - Your files stay between restarts
+-  **ROS Noetic** - Full ROS environment with all tools
+-  **GUI Access** - RViz, Gazebo, rqt via VNC or web browser
+-  **SSH Access** - Terminal-based development with tmux
+-  **Example Package** - Turtle circle demo included
 
 ## Prerequisites
 
-- Docker Desktop for Mac (Apple Silicon version)
+- Docker Desktop (for your platform)
 - A web browser (for GUI access)
-- SSH client (built into macOS)
+- SSH client (built into most systems)
 
 ## Quick Start Guide
 
@@ -49,12 +51,12 @@ docker-compose up -d --build
 ```
 
 ### 2. Wait for Startup
-The container takes about 20 seconds to fully start. You can check progress with:
+The container takes about 20 seconds to fully start. Check progress with:
 ```bash
 docker logs ros_noetic_vnc --tail 10
 ```
 
-### 3. Connect and Start Developing
+### 3. How to Connect 
 
 **Option A: SSH (Recommended for coding)**
 ```bash
@@ -82,11 +84,11 @@ roslaunch turtle_circle_package turtle_circle.launch
 
 ## Access Methods
 
-| Method | URL/Command | Best For |
-|--------|-------------|----------|
-| **SSH** | `ssh root@localhost -p 2222` | Coding, terminal work |
-| **Web VNC** | `http://localhost:8080/vnc.html` | GUI tools (RViz, Gazebo) |
-| **VNC Client** | `localhost:5900` | Alternative GUI access |
+| Method | URL/Command |
+|--------|-------------|
+| **SSH** | `ssh root@localhost -p 2222` | 
+| **Web VNC** | `http://localhost:8080/vnc.html` | 
+| **VNC Client** | `localhost:5900` |
 
 ## Ports
 
@@ -98,7 +100,7 @@ roslaunch turtle_circle_package turtle_circle.launch
 ## Working with ROS
 
 ### Your Workspace
-Your ROS workspace is mounted at `/opt/ros_ws` and persists between container restarts.
+Your ROS workspace is mounted at `/opt/ros_ws` 
 
 ### Creating Packages
 ```bash
@@ -126,10 +128,9 @@ rqt_graph
 
 The included example shows a complete ROS package:
 
-```bash
-# SSH into container
-ssh root@localhost -p 2222
+Will only run in VNC as requires a display server
 
+```bash
 # Build and run
 cd /opt/ros_ws
 catkin_make
@@ -137,7 +138,9 @@ source devel/setup.bash
 roslaunch turtle_circle_package turtle_circle.launch
 ```
 
-This will make a turtle move in circles. Open `http://localhost:8080/vnc.html` to see it in action!
+This will make a turtle move in circles. Open `http://localhost:8080/vnc.html` to see 
+
+
 
 ## Common Commands
 
@@ -158,24 +161,14 @@ catkin_make                  # Build
 source devel/setup.bash      # Source workspace
 ```
 
-## Troubleshooting
 
-### Container Won't Start
-```bash
-# Check Docker Desktop is running
-docker ps
-
-# Check logs
-docker logs ros_noetic_vnc
-```
-
-### Can't Connect to VNC
+### VNC debug 
 - Wait 20 seconds for full startup
 - Try the web interface: `http://localhost:8080/vnc.html`
 - Check logs: `docker logs ros_noetic_vnc`
 
 ### GUI Tools Don't Work in SSH
-This is normal! GUI tools need a display server. Use VNC instead:
+For GUI tools you need a display server. Use VNC :
 1. Open `http://localhost:8080/vnc.html`
 2. SSH from within the VNC session
 3. Now GUI tools will work
@@ -188,13 +181,6 @@ catkin_make
 source devel/setup.bash
 ```
 
-## Tips
-
-- **Use SSH for coding** - Better performance, tmux sessions
-- **Use VNC for GUI** - RViz, Gazebo, rqt tools
-- **Your files persist** - Everything in `/opt/ros_ws` is saved
-- **tmux sessions** - Your work survives disconnections
-- **Web VNC is easiest** - No client installation needed
 
 ## What's Inside
 
@@ -206,12 +192,12 @@ The container includes:
 - Example turtle circle package
 - All ROS tools (RViz, Gazebo, rqt, etc.)
 
-## Need Help?
+## How It Works
 
-1. Check the logs: `docker logs ros_noetic_vnc`
-2. Restart the container: `docker-compose restart`
-3. Rebuild if needed: `docker-compose up -d --build`
+- Container runs **Ubuntu 20.04** 
+- **X11 display server** runs inside the container
+- **VNC** provides GUI access from any platform
+- **SSH** works the same on all systems
+
 
 ---
-
-**That's it! You now have a complete ROS development environment running on your Mac.** 🚀 
