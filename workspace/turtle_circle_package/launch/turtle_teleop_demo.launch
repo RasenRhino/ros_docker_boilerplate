@@ -1,0 +1,14 @@
+<launch>
+  <!-- Launch turtlesim -->
+  <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" output="screen">
+    <param name="background_r" value="255"/>
+    <param name="background_g" value="255"/>
+    <param name="background_b" value="255"/>
+  </node>
+
+  <!-- Launch the enhanced teleop controller -->
+  <node name="turtle_teleop_enhanced" pkg="turtle_circle_package" type="turtle_teleop_enhanced.py" output="screen">
+    <param name="speed" value="1.0"/>
+    <param name="turn" value="1.0"/>
+  </node>
+</launch> 

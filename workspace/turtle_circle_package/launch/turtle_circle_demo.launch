@@ -1,0 +1,17 @@
+<launch>
+  <!-- Launch turtlesim -->
+  <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" output="screen">
+    <param name="background_r" value="255"/>
+    <param name="background_g" value="255"/>
+    <param name="background_b" value="255"/>
+  </node>
+
+  <!-- Launch the turtle circle controller -->
+  <node name="turtle_circle_controller" pkg="turtle_circle_package" type="turtle_circle_node.py" output="screen">
+    <param name="radius" value="2.0"/>
+    <param name="linear_speed" value="1.0"/>
+  </node>
+
+  <!-- Optional: Launch rqt_plot to visualize turtle movement -->
+  <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" args="/turtle1/pose/x /turtle1/pose/y" output="screen"/>
+</launch> 
