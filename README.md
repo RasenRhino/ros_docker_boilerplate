@@ -58,14 +58,6 @@ ssh root@localhost -p 2222
 # Password: ros123
 ```
 
-**Benefits of SSH:**
-- ✅ **Best performance** for development
-- ✅ **tmux sessions** for persistent work
-- ✅ **File editing** with vim/nano
-- ✅ **Terminal-based** ROS tools
-- ✅ **Port forwarding** for GUI tools
-- ✅ **Direct access** to ROS workspace
-
 ### **GUI Access (VNC/Web)**
 - **Web Browser:** `http://localhost:8080/vnc.html`
 - **VNC Client:** `localhost:5900`
