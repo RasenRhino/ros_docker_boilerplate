@@ -48,6 +48,7 @@ roslaunch turtle_circle_package turtle_circle.launch
 docker-compose up -d --build
 ```
 
+
 ### 2. Wait for Startup
 The container takes about 20 seconds to fully start. Check progress with:
 ```bash
@@ -56,13 +57,13 @@ docker logs ros_noetic_vnc --tail 10
 
 ### 3. How to Connect 
 
-**Option A: SSH (Recommended for coding)**
+**Option A: SSH**
 ```bash
 ssh root@localhost -p 2222
 # Password: ros123
 ```
 
-**Option B: GUI (For RViz, Gazebo, etc.)**
+**Option B: GUI**
 - Open `http://localhost:8080/vnc.html` in your browser
 - Click "Connect"
 
@@ -84,7 +85,7 @@ roslaunch turtle_circle_package turtle_circle.launch
 
 | Method | URL/Command |
 |--------|-------------|
-| **SSH** | `ssh root@localhost -p 2222` | 
+| **SSH** | `ssh root@localhost -p 2222` (password : ros123)| 
 | **Web VNC** | `http://localhost:8080/vnc.html` | 
 | **VNC Client** | `localhost:5900` |
 
