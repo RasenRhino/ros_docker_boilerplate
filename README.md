@@ -6,8 +6,6 @@ A complete ROS Noetic development environment running in Docker. Get ROS running
 
 ##  TLDR - Quick Start
 
-**Want to get ROS running right now? Here's the 30-second version:**
-
 ```bash
 # 1. Start the container
 docker-compose up -d --build
