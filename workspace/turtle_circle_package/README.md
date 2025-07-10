@@ -51,7 +51,7 @@ turtle_circle_package/
 
 1. **Start the teleop demo**:
    ```bash
-   roslaunch turtle_circle_package turtle_teleop_demo.launch
+   roslaunch turtle_circle_package turtle_circle_demo.launch
    ```
 
 2. **Control the turtle**:
@@ -144,14 +144,4 @@ You can modify the circle parameters in the launch file:
 - Provides manual control via keyboard
 - Uses non-blocking key input
 - Supports multiple movement commands
-- Graceful shutdown handling
 
-## Next Steps
-
-1. **Modify the circle parameters** in the launch file
-2. **Add more complex movements** (figure-8, square, etc.)
-3. **Implement obstacle avoidance**
-4. **Add multiple turtles**
-5. **Create custom turtle shapes**
-
-Enjoy watching your turtle move in circles! 🐢⭕ 
